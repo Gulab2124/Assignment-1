@@ -1,0 +1,282 @@
+EXERCISE 1 : Implement a Linked List of Student Objects
+
+// Define the Student class with properties: name, id, and grade
+class Student {
+    String name;
+    int id;
+    double grade;
+
+    public Student(String name, int id, double grade) {
+        this.name = name;
+        this.id = id;
+        this.grade = grade;
+    }
+}
+
+// Define the node for the linked list
+class Node {
+    Student data;
+    Node next;
+
+    public Node(Student data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+// Define the linked list class
+class StudentLinkedList {
+    Node head;
+
+    public StudentLinkedList() {
+        this.head = null;
+    }
+
+    // Method to add a student to the linked list
+    public void addStudent(Student student) {
+        Node newNode = new Node(student);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+    }
+}
+
+// Usage example
+public class Main {
+    public static void main(String[] args) {
+        StudentLinkedList studentList = new StudentLinkedList();
+        
+        // Adding students to the linked list
+        studentList.addStudent(new Student("John Doe", 12345, 85.5));
+        studentList.addStudent(new Student("Jane Smith", 67890, 92.3));
+        studentList.addStudent(new Student("Bob Johnson", 54321, 78.9));
+    }
+}
+
+ EXERCISE 2 : Implement a Stack of Book Objects
+
+import java.util.Stack;
+
+// Define the Book class with properties: title, author, and ISBN
+class Book {
+    String title;
+    String author;
+    String ISBN;
+
+    public Book(String title, String author, String ISBN) {
+        this.title = title;
+        this.author = author;
+        this.ISBN = ISBN;
+    }
+}
+
+public class BookStack {
+    public static void main(String[] args) {
+        Stack<Book> bookStack = new Stack<>();
+
+        // Adding 10 books to the stack
+        bookStack.push(new Book("Book 1", "Author 1", "ISBN1"));
+        bookStack.push(new Book("Book 2", "Author 2", "ISBN2"));
+        bookStack.push(new Book("Book 3", "Author 3", "ISBN3"));
+        bookStack.push(new Book("Book 4", "Author 4", "ISBN4"));
+        bookStack.push(new Book("Book 5", "Author 5", "ISBN5"));
+        bookStack.push(new Book("Book 6", "Author 6", "ISBN6"));
+        bookStack.push(new Book("Book 7", "Author 7", "ISBN7"));
+        bookStack.push(new Book("Book 8", "Author 8", "ISBN8"));
+        bookStack.push(new Book("Book 9", "Author 9", "ISBN9"));
+        bookStack.push(new Book("Book 10", "Author 10", "ISBN10"));
+
+        // Reporting on the titles of each book in the stack
+        System.out.println("Titles of Books in the Stack:");
+        while (!bookStack.isEmpty()) {
+            Book book = bookStack.pop();
+            System.out.println(book.title);
+        }
+    }
+}
+
+Exercise 3: Implement a Queue of Athlete Objects
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+// Define the Patient class with properties: name, age, and ailment
+class Patient {
+    String name;
+    int age;
+    String ailment;
+
+    public Patient(String name, int age, String ailment) {
+        this.name = name;
+        this.age = age;
+        this.ailment = ailment;
+    }
+}
+
+public class PatientQueue {
+    public static void main(String[] args) {
+        Queue<Patient> patientQueue = new LinkedList<>();
+
+        // Adding 10 patients to the queue
+        patientQueue.add(new Patient("Patient 1", 30, "Fever"));
+        patientQueue.add(new Patient("Patient 2", 25, "Cough"));
+        patientQueue.add(new Patient("Patient 3", 40, "Headache"));
+        patientQueue.add(new Patient("Patient 4", 22, "Sore Throat"));
+        patientQueue.add(new Patient("Patient 5", 50, "Injury"));
+        patientQueue.add(new Patient("Patient 6", 28, "Allergy"));
+        patientQueue.add(new Patient("Patient 7", 35, "Back Pain"));
+        patientQueue.add(new Patient("Patient 8", 42, "Stomachache"));
+        patientQueue.add(new Patient("Patient 9", 19, "Sprain"));
+        patientQueue.add(new Patient("Patient 10", 60, "Flu"));
+
+        // Iterating over the queue and printing the details of each patient
+        System.out.println("Details of Patients in the Queue:");
+        for (Patient patient : patientQueue) {
+            System.out.println("Name: " + patient.name + ", Age: " + patient.age + ", Ailment: " + patient.ailment);
+        }
+    }
+}
+
+Exercise 4: Retrieve Objects from a Linked List
+
+// Define the Student class with properties: name, id, and grade
+class Student {
+    String name;
+    int id;
+    double grade;
+
+    public Student(String name, int id, double grade) {
+        this.name = name;
+        this.id = id;
+        this.grade = grade;
+    }
+}
+
+// Define the node for the linked list
+class Node {
+    Student data;
+    Node next;
+
+    public Node(Student data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+// Define the linked list class
+class StudentLinkedList {
+    Node head;
+
+    public StudentLinkedList() {
+        this.head = null;
+    }
+
+    // Method to add a student to the linked list
+    public void addStudent(Student student) {
+        Node newNode = new Node(student);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+    }
+
+    // Method to display all students in the linked list
+    public void displayAllStudents() {
+        Node current = head;
+        System.out.println("All Students in the Linked List:");
+        while (current != null) {
+            System.out.println("Name: " + current.data.name + ", ID: " + current.data.id + ", Grade: " + current.data.grade);
+            current = current.next;
+        }
+    }
+
+    // Method to retrieve students with grades above a certain threshold
+    public void displayStudentsAboveThreshold(double threshold) {
+        Node current = head;
+        System.out.println("Students with Grades Above " + threshold + ":");
+        while (current != null) {
+            if (current.data.grade > threshold) {
+                System.out.println("Name: " + current.data.name + ", ID: " + current.data.id + ", Grade: " + current.data.grade);
+            }
+            current = current.next;
+        }
+    }
+}
+
+// Usage example
+public class Main {
+    public static void main(String[] args) {
+        StudentLinkedList studentList = new StudentLinkedList();
+        
+        // Adding students to the linked list
+        studentList.addStudent(new Student("John Doe", 12345, 85.5));
+        studentList.addStudent(new Student("Jane Smith", 67890, 92.3));
+        studentList.addStudent(new Student("Bob Johnson", 54321, 78.9));
+
+        // Displaying all students
+        studentList.displayAllStudents();
+
+        // Displaying students with grades above a certain threshold
+        double threshold = 80.0;
+        studentList.displayStudentsAboveThreshold(threshold);
+    }
+}
+
+Exercise 5: Pop Objects from a Stack
+
+import java.util.Stack;
+
+// Define the Book class with properties: title, author, and ISBN
+class Book {
+    String title;
+    String author;
+    String ISBN;
+
+    public Book(String title, String author, String ISBN) {
+        this.title = title;
+        this.author = author;
+        this.ISBN = ISBN;
+    }
+}
+
+public class BookStack {
+    public static void main(String[] args) {
+        Stack<Book> bookStack = new Stack<>();
+
+        // Adding books to the stack
+        bookStack.push(new Book("Book 1", "Author A", "ISBN1"));
+        bookStack.push(new Book("Book 2", "Author B", "ISBN2"));
+        bookStack.push(new Book("Book 3", "Author C", "ISBN3"));
+        bookStack.push(new Book("Book 4", "Author B", "ISBN4"));
+        bookStack.push(new Book("Book 5", "Author D", "ISBN5"));
+        bookStack.push(new Book("Book 6", "Author E", "ISBN6"));
+
+        // Call the method to find a book by a certain author
+        String targetAuthor = "Author B";
+        popBooksUntilAuthorFound(bookStack, targetAuthor);
+    }
+
+    // Method to pop books from the stack until a book by the desired author is found
+    public static void popBooksUntilAuthorFound(Stack<Book> stack, String targetAuthor) {
+        System.out.println("Popping books until finding the author: " + targetAuthor);
+        while (!stack.isEmpty()) {
+            Book book = stack.pop();
+            System.out.println("Title: " + book.title + ", Author: " + book.author);
+            if (book.author.equals(targetAuthor)) {
+                System.out.println("Book by " + targetAuthor + " found!");
+                break;
+            }
+        }
+    }
+}
